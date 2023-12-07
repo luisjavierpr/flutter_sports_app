@@ -57,8 +57,6 @@ class _GameStatsPageState extends State<GameStatsPage> {
 
 Widget buildPlayerStats(dynamic playerStat) {
   String playerName = playerStat['player']['first_name'] + ' ' + playerStat['player']['last_name'];
-  String teamName = playerStat['team']['full_name'];
-  String jerseyNumber = playerStat['player']['jersey_number'] ?? 'N/A';
   int pointsScored = playerStat['pts'] ?? 0;
   int assists = playerStat['ast'] ?? 0;
   int rebounds = playerStat['reb'] ?? 0;
@@ -117,6 +115,7 @@ Widget buildPlayerStats(dynamic playerStat) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Player Stats for the Game'),
+        backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
