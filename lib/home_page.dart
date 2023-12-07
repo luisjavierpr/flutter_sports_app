@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => GameDetailsPage(pastGames: allGames),
+          builder: (context) => GameDetailsPage(pastGames: allGames, selectedTeamId: teamId),
         ),
       );
     } catch (e) {
