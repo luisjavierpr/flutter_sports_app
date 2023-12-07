@@ -114,7 +114,11 @@ Widget buildPlayerStats(dynamic playerStat) {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Player Stats for the Game'),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        title: const Text('Player Stats for the Game', 
+        style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.black,
       ),
       body: Padding(

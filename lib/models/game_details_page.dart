@@ -46,6 +46,9 @@ class GameDetailsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
         title: Text(
           'Schedule', // Display the team's name in the AppBar title
           style: TextStyle(
@@ -86,7 +89,11 @@ class GameDetailsPage extends StatelessWidget {
                 final visitorTeamId = pastGames[index]['visitor_team']['id'];
                 final homeTeamScore = pastGames[index]['home_team_score'];
                 final visitorTeamScore = pastGames[index]['visitor_team_score'];
-                final status = pastGames[index]['status']; // New status attribute
+                var status = pastGames[index]['status']; // New status attribute
+
+               if (DateTime.tryParse(status) != null) {
+                  status = 'Upcoming';
+                }
 
                 Color borderColor = Colors.blue;
 
