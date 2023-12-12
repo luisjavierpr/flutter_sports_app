@@ -46,10 +46,10 @@ class GameDetailsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        title: Text(
+        title: const Text(
           'Schedule', // Display the team's name in the AppBar title
           style: TextStyle(
             color: Colors.white,
@@ -62,19 +62,19 @@ class GameDetailsPage extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 Text(
                   teamName, // Display the team's name at the top of the screen
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   'Record: $wins - $losses', // Display the team's record
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),

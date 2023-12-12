@@ -8,6 +8,7 @@ class GameStatsPage extends StatefulWidget {
   const GameStatsPage({Key? key, required this.gameData}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _GameStatsPageState createState() => _GameStatsPageState();
 }
 
@@ -57,6 +58,7 @@ class _GameStatsPageState extends State<GameStatsPage> {
 
 Widget buildPlayerStats(dynamic playerStat) {
   String playerName = playerStat['player']['first_name'] + ' ' + playerStat['player']['last_name'];
+  String playerPosition = playerStat['player']['position'] ?? '';
   int pointsScored = playerStat['pts'] ?? 0;
   int assists = playerStat['ast'] ?? 0;
   int rebounds = playerStat['reb'] ?? 0;
@@ -64,7 +66,7 @@ Widget buildPlayerStats(dynamic playerStat) {
 
     return Card(
       elevation: 4,
-      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
@@ -75,27 +77,27 @@ Widget buildPlayerStats(dynamic playerStat) {
                     radius: 30,
                     backgroundImage: NetworkImage(playerImageURL),
                   )
-                : CircleAvatar(
+                : const CircleAvatar(
                     radius: 30,
                     backgroundColor: Colors.grey,
                     // Placeholder if image URL is not available
                   ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             // Player stats
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '$playerName',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    '$playerName${playerPosition.isNotEmpty ? ' ($playerPosition)' : ''}',
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 8),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text('Points: $pointsScored'),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text('Assists: $assists'),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text('Rebounds: $rebounds'),
                   // ... add other stats
                 ],
@@ -126,14 +128,14 @@ Widget buildPlayerStats(dynamic playerStat) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Select a Team:',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -145,11 +147,11 @@ Widget buildPlayerStats(dynamic playerStat) {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
-                    minimumSize: Size(150, 50),
+                    minimumSize: const Size(150, 50),
                   ),
                   child: Text(
                     teamAName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Colors.white,
                     ),
@@ -163,11 +165,11 @@ Widget buildPlayerStats(dynamic playerStat) {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.black,
-                    minimumSize: Size(150, 50),
+                    minimumSize: const Size(150, 50),
                   ),
                   child: Text(
                     teamBName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Colors.white,
                     ),
@@ -175,7 +177,7 @@ Widget buildPlayerStats(dynamic playerStat) {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: allPlayerStats.length,
